@@ -16,3 +16,22 @@
   display: inline-block;
   vertical-align: top;
 }
+
+.custom-form-field {
+  font-size: 18px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.mat-hint {
+  margin-left: 10px; /* Adjust this value to control the distance from the form field */
+  white-space: nowrap; /* Ensure the hint text stays on one line */
+}
+
+h4 {
+  margin-bottom: 20px;
+}

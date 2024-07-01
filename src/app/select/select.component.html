@@ -1,4 +1,4 @@
-<div class="ml-4 mt-6">
+<!-- <div class="ml-4 mt-6">
   <div class="selectBox mt-4">
     <select id="selectAnimal" #animalSelect (change)="onAnimalSelected(animalSelect.value)">
       <option value="-1">Select your Animal</option>
@@ -7,8 +7,27 @@
       }
     </select>
     <div id="output">
-      <!-- Output will be displayed here -->
+      Output will be displayed here
       {{ selectedAnimalDescription }}
     </div>
+  </div>
+</div> -->
+
+<div class="ml-4 mr-4 mt-6">
+  <div class="selectBox mt-4">
+    <h4>Select an animal to see their description:</h4>
+    <mat-form-field class="custom-form-field" appearance="fill">
+      <mat-label>Favorite animal</mat-label>
+      <mat-select [formControl]="animalControl" required (selectionChange)="onAnimalSelected($event.value)">
+        <mat-option>--</mat-option>
+        @for (animal of readAnimal; track animal) {
+        <mat-option [value]="animal.id">{{animal.name}}</mat-option>
+        }
+      </mat-select>
+      @if (animalControl.hasError('required')) {
+      <mat-error>Please choose an animal</mat-error>
+      }
+      <mat-hint>{{selectedAnimalDescription}}</mat-hint>
+    </mat-form-field>
   </div>
 </div>
