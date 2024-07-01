@@ -5,6 +5,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { provideHttpClient, withFetch, withInterceptorsFromDi } from "@angular/common/http";
 import { ApiServiceService } from './api-service.service';
 import { RouterModule } from "@angular/router";
+import { MatTableModule } from "@angular/material/table";
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { RouterModule } from "@angular/router";
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [
     provideHttpClient(withFetch(), withInterceptorsFromDi()),
