@@ -1,39 +1,68 @@
 <!--
-  <div *ngIf="successMsg" class="alert alert-success alert-dismissible fade show mt-4 ml-2" role="alert">
-    <strong>{{ successMsg }}</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div> -->
-
+<div *ngIf="successMsg" class="alert alert-success alert-dismissible fade show mt-4 ml-2" role="alert">
+  <strong>{{ successMsg }}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+-->
 
 <div class="mt-4 ml-4 mr-4">
-  <table class="table table-hover table-bordered">
-    <thead class="table-primary">
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Delete</th>
-        <th scope="col">Edit</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (animal of readAnimal; track animal){
-      <tr>
-        <td>{{ animal.name }}</td>
-        <td>{{ animal.description }}</td>
-        <td>
-          <button class="btn btn-danger delete-icon" (click)="deleteId(animal.id)">
-            <img src="img/trash.png" alt="Delete" width="30" height="30" />
-          </button>
-        </td>
-        <td>
-          <a [routerLink]="['/create', animal.id]" class="btn btn-success edit-icon">
-            <img src="img/pencil.png" alt="Delete" width="30" height="30" />
-          </a>
-        </td>
-      </tr>
-      }
-    </tbody>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+    </ng-container>
+
+    <!-- Delete Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>Delete</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="deleteId(element.id)">
+          <mat-icon><img src="img/trash.png" alt="Edit" width="30" height="30" /></mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Edit Column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>Edit</th>
+      <td mat-cell *matCellDef="let element">
+        <!-- Ensure 'img/pencil.png' is the correct path to your edit icon -->
+        <a [routerLink]="['/create', element.id]" class="btn btn-success edit-icon">
+          <img src="img/pencil.png" alt="Edit" width="30" height="30" />
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row (click)="clickedRows.add(row)" [class.demo-row-is-clicked]="clickedRows.has(row)"
+      *matRowDef="let row; columns: displayedColumns;"></tr>
+
   </table>
+
+  <!-- <div>
+    <h3>
+      Click Log
+    </h3>
+  </div> -->
+
+  @if (!clickedRows.size) {
+  <div>Clicked rows will be logged here</div>
+  }
+
+  <ul>
+    @for (clickedRow of clickedRows; track clickedRow) {
+    <li>Clicked on {{clickedRow.name}}</li>
+    }
+  </ul>
+
 </div>
