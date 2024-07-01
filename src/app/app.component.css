@@ -14,3 +14,33 @@ header{
   font-weight:bold;
 }
 
+/*
+.mat-tab-group {
+  background-color: #f0f0f0;
+  border: 1px solid yellow;
+  border-radius: 4px;
+}
+
+.mat-tab-label {
+  min-width: auto;
+  padding: 12px 20px;
+  font-size: 16px;
+}
+
+.mat-tab-label-active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.mat-tab-label:hover {
+  background-color: #ddd;
+}
+
+.mat-tab-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.mat-tab-link-active {
+  font-weight: bold;
+} */

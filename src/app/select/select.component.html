@@ -14,8 +14,8 @@
 </div> -->
 
 <div class="ml-4 mr-4 mt-6">
+  <h4>Select an animal to see their description:</h4>
   <div class="selectBox mt-4">
-    <h4>Select an animal to see their description:</h4>
     <mat-form-field class="custom-form-field" appearance="fill">
       <mat-label>--</mat-label>
       <mat-select [formControl]="animalControl" required (selectionChange)="onAnimalSelected($event.value)">

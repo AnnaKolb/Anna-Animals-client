@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <header>
-  <h1>Animal Fun!</h1>
+  <h1>Animal Adventure</h1>
 </header>
 
 <body>
-  <ul class="nav nav-tabs nav-tabs-thick">
+  <ul class="nav nav-tabs nav-tabs-thick mb-3">
     <li class="nav-item">
       <a class="nav-link" [class.active]="isTabActive('/')" href="/">Home</a>
     </li>
@@ -19,6 +19,24 @@
         <a class="nav-link disabled" aria-disabled="true"> </a>
       </li> -->
   </ul>
+
+  <!-- <mat-tab-group class="mat-tab-group mat-tab-group-thick">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <a class="nav-link" [class.active]="isTabActive('/') " href="/">Home</a>
+      </ng-template>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <a class="nav-link" [class.active]="isTabActive('/create')" href="/create">Create</a>
+      </ng-template>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <a class="nav-link" [class.active]="isTabActive('/update')" href="/update">Animals</a>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group> -->
 
   <router-outlet></router-outlet>
 </body>
