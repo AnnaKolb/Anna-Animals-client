@@ -6,4 +6,5 @@ Please create your own .env file like this:
 * DB_PASSWORD="your password"
 * DB_HOST="usually localhost"	
 
-then just type in "node (or nodemon) index.js" into the command line
+# TO START 
+Type in "node (or nodemon) index.js" into the command line
