@@ -1,15 +1,19 @@
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const mysql = require("mysql2");
+
+require("./models/animals.js")
+require("./models/createAnimal.js")
 
 router.use(express.json());
 
 // Connecting to SQL database
 const db = mysql.createConnection({
-  host: "localhost",
-  database: "sys",
-  user: "root",
-  password: "Softball4ever2021!",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
   port: 3306,
 });
 
