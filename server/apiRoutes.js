@@ -3,8 +3,9 @@ const express = require('express');
 const router = express.Router();
 const mysql = require("mysql2");
 
-require("./models/animals.js")
+require("./models/DBcreate.js")
 require("./models/createAnimal.js")
+require("./models/animals.js")
 
 router.use(express.json());
 

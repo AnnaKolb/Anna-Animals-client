@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const apiRoutes = require('./apiRoutes');
 const staticFiles = require('./staticFiles');
-// const sequelize = require('./js/sequelizeIndex')
 
 const app = express();
 const port = process.env.PORT || 3000;
