@@ -8,7 +8,7 @@
 -->
 
 <div class="ml-4 mr-4">
-  <h4>Delete or Edit an Animal: </h4>
+  <h4><u>Delete or Edit an Animal:</u></h4>
 </div>
 
 <div class="mt-4 ml-4 mr-4">
@@ -30,8 +30,8 @@
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef>Delete</th>
       <td mat-cell *matCellDef="let element">
-        <button mat-icon-button (click)="deleteId(element.id)">
-          <mat-icon><img src="img/trash.png" alt="Edit" width="30" height="30" /></mat-icon>
+        <button mat-fab aria-label="Example icon button with a delete icon" (click)="deleteId(element.id)">
+          <mat-icon>delete</mat-icon>
         </button>
       </td>
     </ng-container>

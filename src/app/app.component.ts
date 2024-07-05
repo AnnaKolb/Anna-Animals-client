@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { ApiServiceService } from './api-service.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,6 +9,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatFormFieldModule,
     MatListModule,
     MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -51,10 +55,23 @@ export class AppComponent implements OnDestroy {
   mobileQuery!: MediaQueryList;
 
   // inside nav
-  fillerNav = Array.from({ length: 3 }, (_, i) => `Nav Item ${i + 1}`);
+  // fillerNav = Array.from({ length: 3 }, (_, i) => `Nav Item ${i + 1}`);
+  // Define your navigation items with labels and links
+  fillerNav = [
+    { label: 'Home', link: '/' },
+    { label: 'Create', link: '/create' },
+    { label: 'Actions', link: '/update' },
+  ];
+
+  navigateTo(link: string) {
+    this.router.navigateByUrl(link);
+  }
 
   // outside of nav
-  fillerContent = Array.from({ length: 1 }, () => `supposed to be things for nav?`);
+  fillerContent = Array.from(
+    { length: 1 },
+    () => `supposed to be things for nav?`
+  );
 
   private _mobileQueryListener: () => void;
 

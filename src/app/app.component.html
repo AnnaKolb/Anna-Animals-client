@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <header>
-  <h1>Animal Adventure</h1>
+  <h1><b>Animal Adventure</b></h1>
 </header>
 
 <body>
-  <ul class="nav nav-tabs nav-tabs-thick mb-3">
+
+  <!-- sidenav in angular materials -->
+  <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar class="example-toolbar">
+      <button style=" width: 3%" mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+      <h1 class="example-app-name">Menu</h1>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav mode="over" [fixedInViewport]="mobileQuery.matches">
+        <mat-nav-list>
+          @for (navItem of fillerNav; track navItem) {
+          <ng-container>
+            <mat-list-item>
+              <button mat-button (click)="navigateTo(navItem.link)" class="button">
+                <span mat-line>{{ navItem.label }}</span>
+              </button>
+            </mat-list-item>
+          </ng-container>
+        }
+        </mat-nav-list>
+      </mat-sidenav>
+
+      <mat-sidenav-content class="example-sidenav-content">
+        @for (content of fillerContent; track content) {
+        <p> <router-outlet></router-outlet> </p>
+        }
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+
+  <!-- Bootstrap tabs navigation -->
+  <!-- <ul class="nav nav-tabs nav-tabs-thick mb-3">
     <li class="nav-item">
       <a class="nav-link" [class.active]="isTabActive('/')" href="/">Home</a>
     </li>
@@ -18,9 +50,9 @@
     <li class="nav-item">
         <a class="nav-link disabled" aria-disabled="true"> </a>
       </li>
-  </ul>
+  </ul> -->
 
-  <!-- Other angular tabs nav that doesn't look that good -->
+  <!-- angular tabs nav -->
   <!-- <mat-tab-group class="mat-tab-group mat-tab-group-thick">
     <mat-tab>
       <ng-template mat-tab-label>
@@ -39,32 +71,6 @@
     </mat-tab>
   </mat-tab-group> -->
 
-  <!-- Tried to do sidenav in angular materials. Toggle doesn't work -->
-  <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-    <mat-toolbar class="example-toolbar">
-      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-      <h1 class="example-app-name">Responsive App</h1>
-    </mat-toolbar>
-
-    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
-        fixedTopGap="56">
-        <mat-nav-list>
-          @for (nav of fillerNav; track nav) {
-          <a mat-list-item routerLink=".">{{nav}}</a>
-          }
-        </mat-nav-list>
-      </mat-sidenav>
-
-      <mat-sidenav-content>
-        @for (content of fillerContent; track content) {
-        <p>{{content}}</p>
-        }
-      </mat-sidenav-content>
-    </mat-sidenav-container>
-  </div>
-
-  <router-outlet></router-outlet>
 </body>
 
 </html>

@@ -2,18 +2,61 @@
 header{
   background-color: rgb(13, 13, 112);
   color: white;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
 
 }
 
-.nav-tabs.nav-tabs-thick .nav-link {
+.button {
+  width: 100%;
+}
+
+/* sidenav css but again makes it look ugly */
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
+}
+
+.example-sidenav-container {
+  flex: 1;
+}
+
+.example-sidenav-content {
+  margin-left: 200px;
+  margin-right: 200px;
+  text-align: center;
+}
+
+.example-is-mobile .example-sidenav-container {
+
+  flex: 1 0 auto;
+}
+
+
+/* bootstrap tabs styling */
+/* .nav-tabs.nav-tabs-thick .nav-link {
   color: rgb(13, 13, 112) !important;
   font-family: times-new-roman;
   font-size: x-large;
   font-weight:bold;
-}
+} */
 
+/* Tab navigation styling */
 /*
 .mat-tab-group {
   background-color: #f0f0f0;
@@ -43,36 +86,4 @@ header{
 
 .mat-tab-link-active {
   font-weight: bold;
-} */
-
-
-/* sidenav css but again makes it look ugly */
-/* .example-container {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.example-is-mobile .example-toolbar {
-  position: fixed;
-
-  z-index: 2;
-}
-
-h1.example-app-name {
-  margin-left: 8px;
-}
-
-.example-sidenav-container {
-
-  flex: 1;
-}
-
-.example-is-mobile .example-sidenav-container {
-
-  flex: 1 0 auto;
 } */

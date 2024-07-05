@@ -4,7 +4,14 @@
 </div>
 
 <div class="ml-4 mr-4">
-  <h4>Create an Animal:</h4>
+  @if(!getparamid){
+  <h4><u>Create An Animal</u></h4>
+  }
+
+  @if(getparamid) {
+
+  <h4><u>Update An Animal</u></h4>
+  }
 </div>
 
 <div class="mt-4 ml-4">
@@ -27,13 +34,13 @@
 
       <!-- Conditional buttons -->
       @if (!getparamid){
-      <button mat-raised-button (click)="animalSubmit()">
+      <button class="create" mat-raised-button (click)="animalSubmit()">
         Create New Animal
       </button>
       }
 
       @if (getparamid){
-      <button mat-raised-button (click)="updateAnimal()">
+      <button class="update" mat-raised-button (click)="updateAnimal()">
         Update Animal
       </button>
 
@@ -44,7 +51,8 @@
 
 <div class="mt-4 ml-4 mr-4">
   <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8 demo-table">
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+      class="mat-elevation-z8 demo-table">
       <!-- Column definitions -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by id">ID</th>
@@ -57,7 +65,8 @@
       </ng-container>
 
       <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by description">Description</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by description">Description
+        </th>
         <td mat-cell *matCellDef="let element">{{ element.description }}</td>
       </ng-container>
 

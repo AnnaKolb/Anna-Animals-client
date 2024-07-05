@@ -1,5 +1,5 @@
-<div class="ml-4 mr-4 mt-6">
-  <h4>Select an animal to see their description:</h4>
+<div class="margins">
+  <h4><u>Select an animal to see their description:</u></h4>
   <div class="selectBox mt-4">
     <mat-form-field class="custom-form-field" appearance="fill">
       <mat-label>--</mat-label>
@@ -12,7 +12,7 @@
       @if (animalControl.hasError('required')) {
       <mat-error>Please choose an animal</mat-error>
       }
-      <mat-hint>{{selectedAnimalDescription}}</mat-hint>
+      <mat-hint style="font-size: large;">{{selectedAnimalDescription}}</mat-hint>
     </mat-form-field>
   </div>
 </div>

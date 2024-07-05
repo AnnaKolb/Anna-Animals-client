@@ -35,3 +35,14 @@
 th.mat-sort-header-sorted {
   color: black;
 }
+
+.create {
+  background: rgb(0, 140, 255);
+  margin-left: 10px;
+  color: white
+}
+
+.update {
+  background: rgb(5, 228, 5);
+  margin-left: 10px;
+}
